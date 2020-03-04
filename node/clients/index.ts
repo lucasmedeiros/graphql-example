@@ -5,11 +5,11 @@ import Persistence from './persistence'
 
 const memoryCache = {
   attachment: new LRUCache<string, Cached>({ max: 4000 }),
+  vbaseCache: new LRUCache<string, Cached>({ max: 5000 }),
 }
 
 forEachObjIndexed(
   (cacheInstance: LRUCache<string, Cached>, cacheName: string) => {
-    /* global metrics */
     metrics.trackCache(cacheName, cacheInstance)
   },
   memoryCache

@@ -1,7 +1,9 @@
 type Query { 
   hello(name: String!): String
+  product(id: String!): Product
 }
 
 type Mutation {
+  addOrUpdateProduct(product: ProductInput!): Product!
   changeHello(newName: String!): String
 }

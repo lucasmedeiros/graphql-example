@@ -5,6 +5,11 @@ type Product {
 }
 
 input ProductInput {
+  id: ID!
+  name: String!
+  quantity: Int!
+}
+input ProductInput {
   name: String!
   quantity: Int!
 }

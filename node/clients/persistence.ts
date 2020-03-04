@@ -12,13 +12,13 @@ export default class Product extends JanusClient {
   }
 
   public get(vbase: VBase, id: string) {
-    return vbase.getJSON<GraphQLProduct>(this.bucket, `${this.path}/${id}`)
+    return vbase.getJSON<GraphQLProduct>(this.bucket, `${this.path}${id}`)
   }
 
   public save(vbase: VBase, product: GraphQLProduct) {
     return vbase.saveJSON<GraphQLProduct>(
       this.bucket,
-      `${this.path}/${product.id}`,
+      `${this.path}${product.id}`,
       product
     )
   }

@@ -31,6 +31,5 @@ node_modules/
 .vscode
 npm-debug.log
 .build/
-.eslintrc
 *.orig
 yarn-error.log

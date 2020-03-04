@@ -1,14 +1,34 @@
-import { IOClients } from '@vtex/api'
+import { AuthType, Cached, ClientsConfig, IOClients, LRUCache } from '@vtex/api'
+import { forEachObjIndexed } from 'ramda'
 
-import { BookClient } from './book'
-import { MarkdownClient } from './markdown'
+import Persistence from './persistence'
+
+const memoryCache = {
+  attachment: new LRUCache<string, Cached>({ max: 4000 }),
+}
+
+forEachObjIndexed(
+  (cacheInstance: LRUCache<string, Cached>, cacheName: string) => {
+    /* global metrics */
+    metrics.trackCache(cacheName, cacheInstance)
+  },
+  memoryCache
+)
 
 export class Clients extends IOClients {
-  get book() {
-    return this.getOrSet('book', BookClient)
+  public get persistence() {
+    return this.getOrSet('yourClientName', Persistence)
   }
+}
 
-  get markdown() {
-    return this.getOrSet('markdown', MarkdownClient)
-  }
+export const clients: ClientsConfig<Clients> = {
+  implementation: Clients,
+  options: {
+    default: {
+      retries: 1,
+    },
+    skusSheet: {
+      authType: AuthType.bearer,
+    },
+  },
 }

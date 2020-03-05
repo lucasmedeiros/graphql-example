@@ -1,6 +1,7 @@
-type Query { 
+type Query {
   hello(name: String!): String
-  product(id: String!): Product
+  product(id: ID!): Product
+  products: [Product]
 }
 
 type Mutation {

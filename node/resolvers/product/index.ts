@@ -19,11 +19,8 @@ export const Mutation = {
   addOrUpdateProduct: async (
     _: unknown,
     { product }: { product: Product },
-    ctx: Context
+    { clients: { persistence, vbase } }: Context
   ) => {
-    const {
-      clients: { persistence, vbase },
-    } = ctx
     await persistence.save(vbase, product)
     return product
   },

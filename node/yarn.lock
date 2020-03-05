@@ -1866,9 +1866,9 @@ vary@^1.1.2:
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
-"vtex.graphql-example@https://welcome--cosmetics1.myvtex.com/_v/private/typings/linked/v1/vtex.graphql-example@0.1.0+build1583373660/public/@types/vtex.graphql-example":
+"vtex.graphql-example@https://welcome--cosmetics1.myvtex.com/_v/private/typings/linked/v1/vtex.graphql-example@0.1.0+build1583404954/public/@types/vtex.graphql-example":
   version "0.1.0"
-  resolved "https://welcome--cosmetics1.myvtex.com/_v/private/typings/linked/v1/vtex.graphql-example@0.1.0+build1583373660/public/@types/vtex.graphql-example#aa11e35807f271b2a2478f641624d4e9c9904bad"
+  resolved "https://welcome--cosmetics1.myvtex.com/_v/private/typings/linked/v1/vtex.graphql-example@0.1.0+build1583404954/public/@types/vtex.graphql-example#cedc31eedf89d69b17f0f0f11257c9545a5ed070"
 
 wide-align@^1.1.0:
   version "1.1.3"

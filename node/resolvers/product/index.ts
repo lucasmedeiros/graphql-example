@@ -20,8 +20,5 @@ export const Mutation = {
     _: unknown,
     { product }: { product: Product },
     { clients: { persistence, vbase } }: Context
-  ) => {
-    await persistence.save(vbase, product)
-    return product
-  },
+  ) => persistence.save(vbase, product),
 }

@@ -32,6 +32,6 @@ export default class Product extends JanusClient {
       newProduct,
     ])
 
-    return { product, id: products.length }
+    return newProduct
   }
 }

@@ -10,6 +10,7 @@ const memoryCache = {
 
 forEachObjIndexed(
   (cacheInstance: LRUCache<string, Cached>, cacheName: string) => {
+    /* global metrics */
     metrics.trackCache(cacheName, cacheInstance)
   },
   memoryCache

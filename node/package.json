@@ -9,7 +9,8 @@
     "@vtex/api": "6.17.0",
     "tslint": "^5.12.0",
     "tslint-config-vtex": "^2.1.0",
-    "typescript": "3.7.3"
+    "typescript": "3.7.3",
+    "vtex.graphql-example": "https://welcome--cosmetics1.myvtex.com/_v/private/typings/linked/v1/vtex.graphql-example@0.1.0+build1583373397/public/@types/vtex.graphql-example"
   },
   "scripts": {
     "lint": "tsc --noEmit && tslint -c tslint.json './**/*.ts'"

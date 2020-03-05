@@ -3,3 +3,8 @@ type Product {
   name: String!
   quantity: Int!
 }
+
+input ProductInput {
+  name: String!
+  quantity: Int!
+}

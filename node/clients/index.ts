@@ -17,7 +17,7 @@ forEachObjIndexed(
 
 export class Clients extends IOClients {
   public get persistence() {
-    return this.getOrSet('yourClientName', Persistence)
+    return this.getOrSet('persistence', Persistence)
   }
 }
 

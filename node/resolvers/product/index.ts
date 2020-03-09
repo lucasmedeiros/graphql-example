@@ -19,13 +19,15 @@ export const Mutation = {
     _: unknown,
     { product }: { product: ProductInput },
     { clients: { persistence, vbase } }: Context
-  ) => {
-    console.log(product)
-    return await persistence.save(vbase, product)
-  },
+  ) => await persistence.save(vbase, product),
+  updateProduct: async (
+    _: unknown,
+    { id, product }: { id: ID; product: ProductInput },
+    { clients: { persistence, vbase } }: Context
+  ) => await persistence.update(vbase, id, product),
   removeProduct: async (
     _: unknown,
-    { id }: { id: string },
+    { id }: { id: ID },
     { clients: { persistence, vbase } }: Context
   ) => await persistence.remove(vbase, id),
 }

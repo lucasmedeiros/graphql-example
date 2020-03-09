@@ -7,5 +7,6 @@ type Query {
 type Mutation {
   changeHello(newName: String!): String
   addProduct(product: ProductInput!): Product
-  removeProduct(id: String!): Product
+  updateProduct(id: ID!, product: ProductInput!): Product
+  removeProduct(id: ID!): Product
 }

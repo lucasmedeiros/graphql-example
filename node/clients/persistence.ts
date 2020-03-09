@@ -26,7 +26,10 @@ export default class Product extends JanusClient {
 
   public async save(vbase: VBase, product: ProductInput) {
     const products = await this.getAll(vbase)
-    const newProduct: GraphQLProduct = { ...product, id: `${products.length}` }
+    const newProduct: GraphQLProduct = {
+      ...product,
+      id: `${products.length + 1}`,
+    }
     await vbase.saveJSON<GraphQLProduct[]>(this.bucket, this.path, [
       ...products,
       newProduct,
@@ -35,11 +38,27 @@ export default class Product extends JanusClient {
     return { ...product, id: products.length }
   }
 
-  public async remove(vbase: VBase, id: string) {
+  public async update(vbase: VBase, id: ID, product: ProductInput) {
+    const products = await this.getAll(vbase)
+
+    const newProducts = products.map(p =>
+      p.id === ((id as unknown) as string) ? { ...product, id } : p
+    ) as GraphQLProduct[]
+
+    await vbase.saveJSON<GraphQLProduct[]>(this.bucket, this.path, newProducts)
+
+    return newProducts.find(p => p.id === ((id as unknown) as string))
+  }
+
+  public async remove(vbase: VBase, id: ID) {
     try {
       const products = await this.getAll(vbase)
-      const output = products.filter(product => product.id !== id)
-      const productRemoved = products.find(product => product.id === id)
+      const output = products.filter(
+        product => product.id !== ((id as unknown) as string)
+      )
+      const productRemoved = products.find(
+        product => product.id === ((id as unknown) as string)
+      )
       await vbase.saveJSON<GraphQLProduct[]>(this.bucket, this.path, output)
       return productRemoved
     } catch (e) {

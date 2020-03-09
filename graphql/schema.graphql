@@ -1,7 +1,11 @@
-type Query { 
+type Query {
   hello(name: String!): String
+  product(id: ID!): Product
+  products: [Product]
 }
 
 type Mutation {
   changeHello(newName: String!): String
+  addProduct(product: ProductInput!): Product
+  removeProduct(id: String!): Product
 }

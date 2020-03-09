@@ -1,4 +1,4 @@
-import { Service, ParamsContext, RecorderState } from '@vtex/api'
+import { ParamsContext, RecorderState, Service } from '@vtex/api'
 
 import { Clients, clients } from './clients'
 import { resolvers } from './resolvers'

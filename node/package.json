@@ -1,16 +1,19 @@
 {
   "dependencies": {
-    "ramda": "^0.26.1",
-    "apollo-datasource-rest": "^0.1.5"
+    "apollo-datasource-rest": "^0.1.5",
+    "ramda": "^0.26.1"
   },
   "devDependencies": {
     "@types/node": "^12.0.0",
     "@types/ramda": "types/npm-ramda#dist",
     "@vtex/api": "6.17.0",
+    "eslint": "^6.4.0",
+    "eslint-config-vtex": "^11.0.0",
+    "eslint-config-vtex-react": "^5.0.1",
     "tslint": "^5.12.0",
     "tslint-config-vtex": "^2.1.0",
     "typescript": "3.7.3",
-    "vtex.graphql-example": "https://welcome--cosmetics1.myvtex.com/_v/private/typings/linked/v1/vtex.graphql-example@0.1.0+build1583373397/public/@types/vtex.graphql-example"
+    "vtex.graphql-example": "https://medeiros--cosmetics1.myvtex.com/_v/private/typings/linked/v1/vtex.graphql-example@0.1.0+build1583433078/public/@types/vtex.graphql-example"
   },
   "scripts": {
     "lint": "tsc --noEmit && tslint -c tslint.json './**/*.ts'"

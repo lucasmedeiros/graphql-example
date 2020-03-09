@@ -1,12 +1,12 @@
 export const Query = {
   hello: (_: unknown, { name }: { name: string }) => {
-    return `Hello ${name}!!!`
+    return `Produto ${name}!!!`
   },
 }
 
 export const Mutation = {
   changeHello: (_: unknown, { newName }: { newName: string }) => {
-    return `Hello ${newName} from the mutation!!!!!`
+    return `Produto ${newName} from the mutation!!!!!`
   },
 }
 

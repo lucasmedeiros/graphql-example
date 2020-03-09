@@ -1,5 +1,5 @@
-import { InstanceOptions, IOContext, JanusClient, VBase, ID } from '@vtex/api'
-import { ProductInput, Product as GraphQLProduct } from 'vtex.graphql-example'
+import { ID, InstanceOptions, IOContext, JanusClient, VBase } from '@vtex/api'
+import { Product as GraphQLProduct, ProductInput } from 'vtex.graphql-example'
 
 export default class Product extends JanusClient {
   private bucket = 'productsbucket'
@@ -13,7 +13,7 @@ export default class Product extends JanusClient {
 
   public async get(vbase: VBase, id: ID) {
     const products = await this.getAll(vbase)
-    return products[+id]
+    return products.find(product => product.id === ((id as unknown) as string))
   }
 
   public async getAll(vbase: VBase) {
@@ -32,6 +32,18 @@ export default class Product extends JanusClient {
       newProduct,
     ])
 
-    return { product, id: products.length }
+    return { ...product, id: products.length }
+  }
+
+  public async remove(vbase: VBase, id: string) {
+    try {
+      const products = await this.getAll(vbase)
+      const output = products.filter(product => product.id !== id)
+      const productRemoved = products.find(product => product.id === id)
+      await vbase.saveJSON<GraphQLProduct[]>(this.bucket, this.path, output)
+      return productRemoved
+    } catch (e) {
+      return {}
+    }
   }
 }
